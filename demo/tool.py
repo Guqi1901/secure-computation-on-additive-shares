@@ -89,16 +89,6 @@ def shareDecMul(x, y):
 
     return res
 
-# def limitFloatRangeByMod(x, bitrange, fracbit = const.cfracbit):
-#
-#     x = float(x)
-#     x = x % ((2 ** (bitrange + 1) - 1))
-#     if x > 2 ** bitrange - 1:
-#         x = x - 2 ** (bitrange + 1) + 1
-#
-#     temp = FXfamily(fracbit)
-#     return temp(x)
-
 # ensure the share in a ring \mathbb{Z}_{const.cshareintbit + const.cfracbit}
 def limitFixedRangeByMod(x):
 
@@ -125,37 +115,21 @@ def limitFixedMatRangeByMod(X):
 
     return X
 
-# It should be used for vertifing
-# def generateFloatSecret():
-#
-#     aInt = random.randint(-(2 ** const.cintbit - 1), 2 ** const.cintbit - 1)
-#     aFloat = random.random()
-#
-#     return aInt + aFloat
+# it should be used by \mathcal{T}
+def generateFixedSecret():
+    aInt = random.randint(-(2 ** const.cintbit - 1), 2 ** const.cintbit - 1)
+    aFloat = random.random()
+    aFloat = famcfrac(aFloat)
 
-# def generateFloatShare():
-#
-#     a1Int = random.randint(-(2 ** const.cshareintbit - 1) * (2 ** const.cfracbit),
-#                            (2 ** const.cshareintbit - 1) * (2 ** const.cfracbit))
-#     a1Float = random.random()
-#
-#     return a1Int + a1Float
+    return aInt + aFloat
 
-# # it should be used by \mathcal{T}
-# def generateFixedSecret():
-#     aInt = random.randint(-(2 ** const.cintbit - 1), 2 ** const.cintbit - 1)
-#     aFloat = random.random()
-#     aFloat = famcfrac(aFloat)
-#
-#     return aInt + aFloat
-#
-# def generateFixedSecretMat():
-#     A = np.zeros((const.dim, const.dim), dtype=FXfamily)
-#     for i in range(const.dim):
-#         for j in range(const.dim):
-#             A[i, j] = generateFixedSecret()
-#
-#     return A
+def generateFixedSecretMat():
+    A = np.zeros((const.dim, const.dim), dtype=FXfamily)
+    for i in range(const.dim):
+        for j in range(const.dim):
+            A[i, j] = generateFixedSecret()
+
+    return A
 
 # generate share in the ring
 def generateFixedShare():
@@ -212,29 +186,6 @@ def generateExpCoverSecretForSqrt():
     aFloat = famefrac(aFloat)
 
     return aInt + aFloat
-
-#
-# def generateCoverMat():
-#     sign = [-1, 1]
-#     A = np.zeros((const.dim, const.dim), dtype=FXfamily)
-#     A1 = np.zeros((const.dim, const.dim), dtype=FXfamily)
-#     A2 = np.zeros((const.dim, const.dim), dtype=FXfamily)
-#
-#     for i in range(const.dim):
-#         for j in range(const.dim):
-#             aInt = random.randint(-(const.cshareintbit - const.cintbit - np.ceil(np.log(const.dim))),
-#                                   const.cshareintbit - const.cintbit - np.ceil(np.log(const.dim)))
-#             aFloat = random.random()
-#             a_sgn = random.choice(sign)
-#             a = a_sgn * 2 ** (aInt + aFloat)
-#
-#             A[i, j] = a
-#             a = famcfrac(A[i, j])
-#
-#             A1[i, j] = generateFixedShare()
-#             A2[i, j] = limitFixedRangeByMod(a - A1[i, j])
-#
-#     return (A, A1, A2)
 
 # generate the share in the ring [-shareintbit, cshareintbit]
 def generateExpShare():
