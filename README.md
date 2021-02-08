@@ -12,7 +12,7 @@ This is a supporting document for the paper [Secure Computation on additive shar
 
 We provide the demo codes for all the protocols shown in the paper. For convenience and readability, the demo only uses the (2,2)-threshold assumption, and the interaction operations are not simulated. We try to use the same symbols like that in the paper.
 
-**Please download this md file and open it with some better md reader (e.g., typora) to support LATEX.**
+**Please download this md file and open it with some better md readers (e.g., typora) to support LATEX.**
 
 ## Usage
 
