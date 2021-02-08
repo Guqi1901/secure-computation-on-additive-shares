@@ -12,7 +12,7 @@ This is a supporting document for the paper [Secure Computation on additive shar
 
 We provide the demo codes for all the protocols shown in the paper. For convenience and readability, the demo only uses the (2,2)-threshold assumption, and the interaction operations are not simulated. We try to use the same symbols like that in the paper.
 
-Please download this md file and open it with some better md reader (e.g., typora) to support LATEX.
+**Please download this md file and open it with some better md reader (e.g., typora) to support LATEX.**
 
 ## Usage
 
@@ -46,7 +46,7 @@ We evaluate the number of computations involved in each protocol. The communicat
 | $\texttt{SecDiv}$      |              $7(n-1)$              |        $0$         |                    2 $mul$ on *secrets*                     |
 | $\texttt{SecMatMul}$   |            $3d^2(n-1)$             |        $0$         |               1 $matmul$ on *secret matrices*               |
 | $\texttt{SecMatInv}$   |            $3d^2(n-1)$             |        $0$         |               1 $matmul$ on *secret matrices*               |
-| $\texttt{SecEigen}$    |          $(12d^2+4)(n-1)$          |        $0$         | 3 $matmul$ on *secret matrices*, $d^2+1$ $mul$ on *secrets* |
+| $\texttt{SecMatEigen}$ |          $(12d^2+4)(n-1)$          |        $0$         | 3 $matmul$ on *secret matrices*, $d^2+1$ $mul$ on *secrets* |
 | $\texttt{SecThreeMul}$ |             $13(n-1)$              |        $0$         |                    2 $mul$ on *secrets*                     |
 | $\texttt{SecArctan}$   | $\frac{23}{2}n^2-\frac{69}{2}n+23$ |        $0$         |                 $5(n-1)$ $mul$ on *secrets*                 |
 
@@ -66,7 +66,7 @@ We evaluate the number of computations involved in each protocol. The communicat
 | $\texttt{SecDiv}$      |                     $5n^2+3n+2$                     |            $5n^2+2$             |        $0$         |      $0$       |                $n$ $div$ on *secret* (with 1)                |
 | $\texttt{SecMatMul}$   |                 $2d^2n^2+2d^3n+d^3$                 |           $2d^3n+d^3$           |        $0$         |      $0$       |                              -                               |
 | $\texttt{SecMatInv}$   |             $3d^2n^2+(3d^3-2d^2)n+d^3$              |           $3d^3n+d^3$           |        $0$         |      $0$       |               $n$ $matInv$ on *secret matrix*                |
-| $\texttt{SecEigen}$    |          $(9d^2+3)n^2+$$(8d^3+1)n+3d^3+1$           | $(8d^3+2d^2+d+2)n$+$2d^3+d^2+1$ |        $0$         |      $0$       | $n$ $div$ on *secret* (with 1),  $n$ $matInv$ on *secret matrix*,  $1$ rounds of solving eigenvalue and eigenvector on *secret matrix* |
+| $\texttt{SecMatEigen}$ |          $(9d^2+3)n^2+$$(8d^3+1)n+3d^3+1$           | $(8d^3+2d^2+d+2)n$+$2d^3+d^2+1$ |        $0$         |      $0$       | $n$ $div$ on *secret* (with 1),  $n$ $matInv$ on *secret matrix*,  $1$ rounds of solving eigenvalue and eigenvector on *secret matrix* |
 | $\texttt{SecThreeMul}$ |                    $9n^2+15n+4$                     |             $15n+5$             |        $0$         |      $0$       |                              -                               |
 | $\texttt{SecArctan}$   | $\frac{16}{3}n^3+\frac{33}{2}n^2+\frac{115}{6}n-41$ |          $6n^2+14n-20$          |        $0$         |      $0$       | $\frac{1}{2}n^2+\frac{1}{2}n-1$ $div$ on *secrets*, $n$ $arctan$ on *secret* |
 
@@ -217,9 +217,9 @@ We test the following protocols with only the second kind of input. The protocol
 | meanError  | 9.07E-12 | 2.74E-11 | 1.07E-10 |
 |  maxError  | 2.08E-07 | 1.74E-07 | 2.76E-07 |
 
-*SecEigen*: additive $share$ of eigenvalues and eigenvectors of $X $$\leftarrow$ $[X]_i$
+*SecMatEigen*: additive $share$ of eigenvalues and eigenvectors of $X $$\leftarrow$ $[X]_i$
 
-|   SecEigen    |   4*4    |  16*16   |  64*64   |
+|  SecMatEigen  |   4*4    |  16*16   |  64*64   |
 | :-----------: | :------: | :------: | :------: |
 |  errorCount   |   1301   |    19    |   586    |
 | meanValueErr  | 1.61E-03 | 2.98E-06 | 2.28E-05 |

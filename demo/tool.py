@@ -89,7 +89,7 @@ def shareDecMul(x, y):
 
     return res
 
-# ensure the share in a ring \mathbb{Z}_{const.cshareintbit + const.cfracbit}
+# ensure the share in a ring \mathbb{Z}_{const.cshareintbit + const.cfracbit}, it could be faster with bit operations
 def limitFixedRangeByMod(x):
 
     N = (2 ** (const.cintbit + 1) - 1) * (2 ** const.cfracbit)
