@@ -1,12 +1,12 @@
 ## Info
 
-This is a supporting document for the paper [Secure Computation on additive shares](https://arxiv.org/abs/2009.13153).
+This is a supporting document for the paper [STR: Secure Computation on additive shares using the share-transform-reveal strategy](https://arxiv.org/abs/2009.13153).
 
-> Secure Computation on Additive Shares
+> STR: Secure computation on additive shares using the share-transform-reveal strategy
 >
 > By *Zhihua Xia, Qi Gu, Wenhao Zhou, Lizhi Xiong, Jian Weng, Neal N. Xiong*
 >
-> This paper is under review now. Thanks to the editors and reviewers for their time 
+> This paper is accepted by IEEE Transactions on computers now (doi: 10.1109/TC.2021.3073171). Thanks to the editors and reviewers for their time 
 >
 > If you have any suggestions or problems with the code or this document, please contact me by email: 634337549@qq.com
 
